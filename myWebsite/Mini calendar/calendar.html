@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Mini Calendar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background: grey;
+
+        width: 100%;
+        min-height: 100vh;
+      }
+      header {
+        color: white;
+        background-color: black;
+        height: 50px;
+
+        width: 400px;
+        font-size: 2rem;
+        margin: 0px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+      }
+      .calendar {
+        width: 400px;
+        height: 300px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        border-radius: 15px;
+        border-top-left-radius: 0px;
+      }
+
+      .left,
+      .right {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        flex-direction: column;
+      }
+
+      .right {
+        width: 42%;
+        background: tomato;
+        color: white;
+        border-bottom-right-radius: 15px;
+      }
+
+      .left {
+        width: 58%;
+        border-bottom-left-radius: 15px;
+      }
+
+      #date {
+        font-size: 7rem;
+        font-family: "Franklin Gothic Medium", sans-serif;
+        line-height: 90px;
+      }
+      [id] {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>Calendar</header>
+      <div class="calendar">
+        <div class="left">
+          <p id="date"></p>
+          <p id="day"></p>
+        </div>
+        <div class="right">
+          <p id="month"></p>
+          <p id="year"></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const date = document.getElementById("date");
+      const day = document.getElementById("day");
+      const month = document.getElementById("month");
+      const year = document.getElementById("year");
+
+      const today = new Date();
+
+      const weekDays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      const allMonths = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      date.innerHTML = (today.getDate() < 10 ? "0" : "") + today.getDate();
+      day.innerHTML = weekDays[today.getDay()];
+      month.innerHTML = allMonths[today.getMonth()];
+      year.innerHTML = today.getFullYear();
+    </script>
+  </body>
+</html>
